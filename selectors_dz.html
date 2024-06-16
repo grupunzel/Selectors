@@ -1,0 +1,166 @@
+<!doctype html>
+<html>
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+ <style>
+
+body {
+    background-color: #fda7b2;
+    font-family: 'Bookman Old Style', sans-serif;
+}
+
+div, p {
+    border: 2px dashed rgb(0, 0, 0);
+    display: inline-block;
+    background: #eee;
+    border-radius: 10px;
+    height: 60px;
+    margin: 30px;
+    margin-top: 200px;
+    padding-top: 40px;
+    text-align: center;
+    width: 100px;
+    padding: 30px;
+    padding-bottom: 20px;
+
+}
+
+#d1 {
+    margin-left: 350px;
+}
+
+#but1 {
+    margin-left: 350px;
+}
+
+#copy, #del {
+    margin-left: 800px;
+}
+
+#copy1 {
+    font-family: 'Bookman Old Style', sans-serif;
+    margin: 20px;
+    margin-left: 25px;
+    margin-top: 50px;
+    width: 110px;
+    height: 30px;
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 10px;
+}
+
+button {
+    font-family: 'Bookman Old Style', sans-serif;
+    margin-left: 25px;
+    margin-top: 50px;
+    width: 110px;
+    height: 50px;
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 10px;
+}
+
+ </style>
+</head>
+<body>
+
+ <div id="d1" class="class1" name="name1">d1, class1, name1</div>
+ <div id="d2" class="class2" name="name1">d2, class2, name1</div>
+ <div id="d3" class="class1 class2">d3, class1 class2</div>
+ <p id="p2" class="class2" name="name1">p2, class2, name1</p>
+ <p id="p1" class="class1">p1, class1, class1</p>
+
+ <br>
+ <button id = "but1" onclick="selectorD1()">id = d1</button>
+ <button onclick="selectorClass1()">class1</button>
+ <button onclick="selectorClass2()">class2</button>
+ <button onclick="selectorP()">tag = P</button>
+ <button onclick="selectorName1()">name1</button>
+ <button onclick="selectorDiv()">div</button>
+ <button onclick="selectorP1()">p1</button>
+ <button onclick="clr()">Clear</button>
+ <br><br>
+ <button id = "del" onclick="del()">Delete this button</button>
+ <br>
+ <button id = "copy" onclick="copy()">Copy Button</button>
+
+
+ <script>
+
+function copy() {
+    $('<input type="button" id="copy1" value = "new button"/>').appendTo('body');
+}
+
+function del() {
+    elem = document.getElementById('del');
+    elem.parentNode.removeChild(elem);
+}
+
+function selectorP1() {
+    $("#p1").css({
+    "background-color": "#cfc",
+    "color": "blue",
+  })
+
+}
+
+function selectorD1() {  
+  $("#d1").css({
+    "background-color": "#cfc",
+    "color": "blue",
+  })
+}
+
+function selectorClass1() {
+  let elems = document.getElementsByClassName("class1")
+  for(elem of elems) {
+    elem.style.color = "white";
+    elem.style.backgroundColor = "black";
+  }  
+}
+
+function selectorClass2() {
+  let elems = document.getElementsByClassName("class2")
+  for(elem of elems) {
+    elem.style.backgroundColor = "#fcc";
+  }  
+}
+
+function selectorDiv() {
+    let elems = document.getElementsByTagName("div");
+        for(elem of elems) 
+        {
+        elem.style.backgroundColor = "pink";  
+        }
+}
+
+ function selectorP() {
+  let elems = document.getElementsByTagName("p");
+ for(elem of elems) 
+ {
+  elem.style.backgroundColor = "#ccf";  
+ }
+ }
+
+
+ function selectorName1() {
+$('[name="name1"]').css("background-color", "#bef")
+ }
+
+
+ function clr() { 
+  let elems = document.querySelectorAll("div,p");
+ for(elem of elems)
+ {
+   elem.style.backgroundColor = "#eee"; 
+ }
+
+ let elemen = document.getElementsByClassName("class1");
+ for (elem of elemen) {
+    elem.style.color = "black";
+ }
+ 
+$("div,p").css("background-color", "#eee")
+ }
+ </script>
+</body>
+</html>
